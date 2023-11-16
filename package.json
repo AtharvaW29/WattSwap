@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "react-router-redux": "^4.0.8",
+    "redux-auth-wrapper": "^3.0.0",
+    "truffle": "^5.11.5",
+    "web3": "^4.2.2"
+  }
+}
