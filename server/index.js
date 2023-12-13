@@ -1,11 +1,15 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const cors = require("cors")
-const User = require("./models/User")
+const appRoutes = require("./routes/approutes")
+const bodyParser = require("body-parser")
 
 const app = express()
 app.use(express.json())
 app.use(cors())
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+app.use('/public/images', express.static('images'))
 
 mongoose.connect("mongodb://127.0.0.1:27017/wattswap", {  useNewUrlParser: true,
 useUnifiedTopology: true,})
@@ -21,6 +25,9 @@ app.post('/register', signupUser)
 app.post('/login', loginUser)
 
 
+//app routes
+app.use('/app', appRoutes)
+
 app.listen(4000, () => {
-    console.log("server is on BABY!")
+    console.log("server is running on 4000!")
 })

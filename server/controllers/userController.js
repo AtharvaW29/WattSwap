@@ -1,7 +1,6 @@
 const User = require('../models/User')
 const jwt = require('jsonwebtoken')
 
-
 const secret = 'wattswappforsustainableenrgyandcleanfuture';
 
 const createToken = (_id) =>{
@@ -16,7 +15,9 @@ const loginUser = async (req, res) => {
 
         //create a token
         const token = createToken(user._id);
-        res.status(200).json({email, token})
+        const name = user.name
+        const user_id = user._id
+        res.status(200).json({email, token, name, user_id})
     }catch (error){
         res.status(400).json({error: error.message})
     }
@@ -30,10 +31,11 @@ const signupUser = async (req, res) => {
 
         //create a token
         const token = createToken(user._id);
-        res.status(200).json({email, token})
+        res.status(200).json({email, token, name})
     }catch (error){
         res.status(400).json({error: error.message})
     }
 }
+
 
 module.exports = { signupUser, loginUser }
