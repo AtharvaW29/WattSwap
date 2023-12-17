@@ -11,27 +11,21 @@ const getHomeData = async (req, res) => {
 
 // Get Profile Info
 const getProfileData = async (req, res) => {
-    const { id } = req.params
-    console.log(id)
+    const authHeader   = req.params.user_id
 
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({error: 'No such profile!'})
-    }
+    const token = authHeader
+        
+    if (!mongoose.Types.ObjectId.isValid(token)) {
+        return res.status(404).json({error: 'No such User'})
+      }
 
-    const userprofile = await UserProfile.findOne(id)
+    const userprofile = await UserProfile.findOne({user_id: token})
 
     if(!userprofile) {
         return res.status(404).json({error: 'No such profile'})
     }
 
-    const user_id = userprofile.user_id
-    const image = userprofile.image
-    const contact = userprofile.contact
-    const city = userprofile.city
-    const country = userprofile.country
-    const state = userprofile.state
-
-    res.status(200).json(user_id, image, contact, city, state, country)
+    res.status(200).json(userprofile)
 }
 
 
@@ -55,8 +49,28 @@ const createProfile = async (req, res) => {
     }
 }
 
+// Update Profile Info
+const updateProfile = async (req, res) => {
+    const { token } = req.params.user_id
+
+    if(!mongoose.Types.ObjectId.isValid(token)) {
+        return res.status(404).json({error: 'No Such Profile!'})
+    }
+
+    const userprofile = await UserProfile.findOneAndUpdate({user_id: token}, {
+        ...req.body
+    })
+
+    if(!userprofile){
+        res.status(404).json({error: 'No Such User Profile'})
+    }
+
+    res.status(200).json(userprofile)
+}
+
 module.exports = {
     getHomeData,
     getProfileData,
-    createProfile
+    createProfile,
+    updateProfile
 }
