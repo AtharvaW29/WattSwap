@@ -10,7 +10,13 @@ const {
     } = require("../controllers/appController")
 
 const {
-    createListing
+    createListing,
+    getListings,
+    deleteListing,
+    addToMarketPlace,
+    getMarketPlaceDeals,
+    getUserMarketPlaceDeals,
+    deleteMarketPLaceListing
 } = require("../controllers/transactionController")
 
 //using auth for the following
@@ -32,5 +38,23 @@ router.patch('/profile/edit/:user_id', upload.single('image'), updateProfile)
 
 // Deal Listing
 router.post('/transaction/listing', createListing)
+
+//Get Deals
+router.get('/transaction/deals/:user_id', getListings)
+
+//Delete Deals
+router.delete('/transaction/deals/:_id', deleteListing)
+
+//Add to MarketPlace
+router.post('/marketplace', addToMarketPlace)
+
+//Fetch all deals from MarketPlace
+router.get('/marketplace', getMarketPlaceDeals)
+
+// Fetch only deals listed by user
+router.get('/marketplace/:user_id', getUserMarketPlaceDeals)
+
+// Delete a MarketPlaceListing
+router.delete('/marketplace/:_id', deleteMarketPLaceListing)
 
 module.exports = router
