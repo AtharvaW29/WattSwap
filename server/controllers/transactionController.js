@@ -30,7 +30,7 @@ const createListing = async (req, res) => {
     // }
 
     try{
-        const marketPlaceListing = await Listing.marketPlaceListing(user_id, amount, rate, accountId, walletAddress);
+        const marketPlaceListing = await Listing.listing(user_id, amount, rate, accountId, walletAddress);
         await marketPlaceListing.save();
         res.status(200).json(marketPlaceListing);
     }
@@ -71,6 +71,8 @@ const addToMarketPlace = async (req, res) => {
         const amount = req.body.amount
         const rate = req.body.rate
         const name = req.body.name
+        const accountId = req.body.accountId
+        const walletAddress = req.body.walletAddress
 
 
         if (!mongoose.Types.ObjectId.isValid(user_id)) {
@@ -84,7 +86,7 @@ const addToMarketPlace = async (req, res) => {
         }
 
         try{
-            const marketPlaceListing = await MarketPlace.marketPlaceListing(user_id, amount, rate, name);
+            const marketPlaceListing = await MarketPlace.marketPlaceListing(user_id, amount, rate, name, accountId, walletAddress);
             await marketPlaceListing.save();
             res.status(200).json(marketPlaceListing);
         }

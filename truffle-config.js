@@ -46,8 +46,6 @@
 
 // const HDWalletProvider = require('@truffle/hdwallet-provider');
 
-const path = require("path");
-
 module.exports = {
   /**
    * Networks define how you connect to your ethereum client and let you set the
@@ -59,7 +57,9 @@ module.exports = {
    * $ truffle test --network <network-name>
    */
 
-  contracts_build_directory: path.join(__dirname, "client/src/contracts"),
+
+  settings: { evmVersion: 'shanghai' },
+
 
   networks: {
     // Useful for testing. The `development` name is special - truffle uses it by default
@@ -72,7 +72,6 @@ module.exports = {
      host: "127.0.0.1",     // Localhost (default: none)
      port: 7545,            // Standard Ethereum port (default: none)
      network_id: "5777",       // Any network (default: none)
-     websockets: true
     },
     //
     // An additional network, but with some advanced options…
@@ -111,7 +110,7 @@ module.exports = {
   // Configure your compilers
   compilers: {
     solc: {
-      version: "0.8.21",      // Fetch exact version from solc-bin (default: truffle's version)
+      version: "0.8.20",      // Fetch exact version from solc-bin (default: truffle's version)
       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
       // settings: {          // See the solidity docs for advice about optimization and evmVersion
       //  optimizer: {
@@ -133,14 +132,14 @@ module.exports = {
   // After you backed up your artifacts you can utilize db by running migrate as follows:
   // $ truffle migrate --reset --compile-all
   //
-  db: {
-    enabled: false,
-    host: "127.0.0.1:27017",
-    adapter: {
-      name: "wattswap",
-      settings: {
-        directory: ".db"
-      }
-    }
-  }
+  // db: {
+  //   enabled: false,
+  //   host: "127.0.0.1",
+  //   adapter: {
+  //     name: "indexeddb",
+  //     settings: {
+  //       directory: ".db"
+  //     }
+  //   }
+  // }
 };

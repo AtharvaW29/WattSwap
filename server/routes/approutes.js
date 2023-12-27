@@ -20,7 +20,7 @@ const {
 } = require("../controllers/transactionController")
 
 //using auth for the following
-// router.use(requireAuth)
+router.use(requireAuth)
 
 //Get the home-page data
 router.get('/home', getHomeData)
