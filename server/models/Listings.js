@@ -13,10 +13,6 @@ const listingSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    accountId: {
-        type: String,
-        required: true,
-    },
     walletAddress: {
         type: String,
         required: true,
@@ -24,12 +20,12 @@ const listingSchema = new mongoose.Schema({
 }, {timestamps: true})
 
 //static listing method
-listingSchema.statics.listing = async function (user_id, amount, rate, accountId, walletAddress) {
+listingSchema.statics.listing = async function (user_id, amount, rate, walletAddress) {
     //validation
-    if( !amount || !rate || !accountId || !walletAddress ){
+    if( !amount || !rate || !walletAddress ){
         throw Error('All Fields Must Be Filled!')
     }
-    const listing = await this.create({ user_id, amount, rate, accountId, walletAddress })
+    const listing = await this.create({ user_id, amount, rate, walletAddress })
 
     return listing
 }

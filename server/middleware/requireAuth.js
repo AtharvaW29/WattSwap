@@ -3,7 +3,7 @@ const User = require('../models/User')
 
 const requireAuth = async (req, res, next) => {
 
-    const secret = 'wattswappforsustainableenrgyandcleanfuture';
+    const secret = process.env.SECRET
 
     // verify auth
     const { authorization } = req.headers

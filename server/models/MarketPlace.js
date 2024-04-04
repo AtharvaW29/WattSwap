@@ -8,7 +8,6 @@ const marketPlaceSchema = new mongoose.Schema({
     amount: {
         type: Number,
         required: true,
-        unique: true
     },
     rate: {
         type: Number,
@@ -18,10 +17,6 @@ const marketPlaceSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    accountId: {
-        type: String,
-        required: true,
-    },
     walletAddress: {
         type: String,
         required: true,
@@ -29,16 +24,16 @@ const marketPlaceSchema = new mongoose.Schema({
 }, {timestamps: true})
 
 //static MarketPlace Listing
-marketPlaceSchema.statics.marketPlaceListing = async function (user_id, amount, rate, name, accountId, walletAddress) {
+marketPlaceSchema.statics.marketPlaceListing = async function (user_id, amount, rate, name, walletAddress) {
     
-    if(!user_id || !amount || !rate || !name || !accountId || !walletAddress) {
+    if(!user_id || !amount || !rate || !name || !walletAddress) {
         throw Error("All Fields Must be Filled")
     }
     if(amount == this.findOne(amount)){
         throw Error("No Duplicate Deals")
     }
 
-    const marketListing = await this.create({ user_id, amount, rate, name, accountId, walletAddress })
+    const marketListing = await this.create({ user_id, amount, rate, name, walletAddress })
     return marketListing
 }
 

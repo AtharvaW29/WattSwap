@@ -3,12 +3,12 @@ const Listing = require('../models/Listings')
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 const MarketPlace = require('../models/MarketPlace')
+const Invoice = require('../models/Invoice')
 
 //List a new deal
 const createListing = async (req, res) => {
     const amount = req.body.amount
     const rate = req.body.rate
-    const accountId = req.body.accountId
     const walletAddress = req.body.walletAddress
     const password = req.body.password
     const user_id = req.body.user_id
@@ -30,7 +30,7 @@ const createListing = async (req, res) => {
     // }
 
     try{
-        const marketPlaceListing = await Listing.listing(user_id, amount, rate, accountId, walletAddress);
+        const marketPlaceListing = await Listing.listing(user_id, amount, rate, walletAddress);
         await marketPlaceListing.save();
         res.status(200).json(marketPlaceListing);
     }
@@ -71,7 +71,6 @@ const addToMarketPlace = async (req, res) => {
         const amount = req.body.amount
         const rate = req.body.rate
         const name = req.body.name
-        const accountId = req.body.accountId
         const walletAddress = req.body.walletAddress
 
 
@@ -86,7 +85,7 @@ const addToMarketPlace = async (req, res) => {
         }
 
         try{
-            const marketPlaceListing = await MarketPlace.marketPlaceListing(user_id, amount, rate, name, accountId, walletAddress);
+            const marketPlaceListing = await MarketPlace.marketPlaceListing(user_id, amount, rate, name, walletAddress);
             await marketPlaceListing.save();
             res.status(200).json(marketPlaceListing);
         }
@@ -130,6 +129,39 @@ const deleteMarketPLaceListing = async (req, res) => {
     res.status(200).json(marketPlaceListing)
 }
 
+// Create an Invoice
+const createInvoice = async (req, res) => {
+    const user_id = req.body.user_id
+    const amount = req.body.amount
+    const price = req.body.rate
+    const name = req.body.name
+    const walletAddress = req.body.walletAddress
+
+    try{
+        const invoice = await Invoice.invoice(user_id, amount, price, name, walletAddress);
+        await invoice.save();
+        res.status(200).json(invoice);
+    }
+    catch(error){
+        res.status(400).json({error: error.message})
+    }
+}
+
+// Fetch a single Invoice
+const getInvoices = async(req, res) => {
+    const user_id = req.params.user_id
+
+    const invoice = await Invoice.find({user_id: user_id}).sort({createdAt: -1})
+
+    if(!invoice){
+        return res.status(404).json({error: 'No such Invoice!'})
+    }
+
+    res.status(200).json(invoice)
+}
+
+
+
 module.exports = {
     createListing,
     getListings,
@@ -137,5 +169,7 @@ module.exports = {
     addToMarketPlace,
     getMarketPlaceDeals,
     getUserMarketPlaceDeals,
-    deleteMarketPLaceListing
+    deleteMarketPLaceListing,
+    createInvoice,
+    getInvoices
 }

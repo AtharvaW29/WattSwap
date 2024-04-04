@@ -16,7 +16,9 @@ const {
     addToMarketPlace,
     getMarketPlaceDeals,
     getUserMarketPlaceDeals,
-    deleteMarketPLaceListing
+    deleteMarketPLaceListing,
+    createInvoice,
+    getInvoices
 } = require("../controllers/transactionController")
 
 //using auth for the following
@@ -56,5 +58,11 @@ router.get('/marketplace/:user_id', getUserMarketPlaceDeals)
 
 // Delete a MarketPlaceListing
 router.delete('/marketplace/:_id', deleteMarketPLaceListing)
+
+// Create an Invoice
+router.post('/invoice', createInvoice)
+
+// Get an Invoice
+router.get('/invoice/:user_id', getInvoices)
 
 module.exports = router

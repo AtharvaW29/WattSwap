@@ -1,15 +1,19 @@
-const express = require("express")
-const mongoose = require("mongoose")
-const cors = require("cors")
-const appRoutes = require("./routes/approutes")
-const bodyParser = require("body-parser")
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const appRoutes = require("./routes/approutes");
+const bodyParser = require("body-parser");
+const  dotenv = require('dotenv');
+const path = require("path");
+dotenv.config();
+
 
 const app = express()
 app.use(express.json())
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-app.use('/public/images', express.static('images'))
+app.use(express.static(path.join(__dirname, 'public')))
 
 mongoose.connect("mongodb://127.0.0.1:27017/wattswap", {  useNewUrlParser: true,
 useUnifiedTopology: true,})
