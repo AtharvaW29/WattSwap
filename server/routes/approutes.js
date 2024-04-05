@@ -21,8 +21,10 @@ const {
     getInvoices
 } = require("../controllers/transactionController")
 
+const { switchOnRelay } = require("../controllers/hardwareController")
+
 //using auth for the following
-router.use(requireAuth)
+// router.use(requireAuth)
 
 //Get the home-page data
 router.get('/home', getHomeData)
@@ -64,5 +66,8 @@ router.post('/invoice', createInvoice)
 
 // Get an Invoice
 router.get('/invoice/:user_id', getInvoices)
+
+//Get transfer Time
+router.get('/api/transfer-time/', switchOnRelay )
 
 module.exports = router

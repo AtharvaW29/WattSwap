@@ -90,7 +90,23 @@ void loop() {
 
     // Send the voltage data to Firebase
     if (Firebase.RTDB.setFloat(&fbdo, "/LED/power/", power)) {
-      Serial.println("Voltage sent to Firebase: " + String(power) + " W");
+      Serial.println("Voltage sent to Firebase: " + String(power) + " mW");
+      Serial.println("Current:" + String(current));
+    } else {
+      Serial.println("Failed to send voltage to Firebase");
+      Serial.println(fbdo.errorReason());
+    }
+        // Send the current data to Firebase
+    if (Firebase.RTDB.setFloat(&fbdo, "/LED/current", current)) {
+      Serial.println("Current sent to Firebase: " + String(current) + " mA");
+    } else {
+      Serial.println("Failed to send current to Firebase");
+      Serial.println(fbdo.errorReason());
+    }
+
+    // Send the voltage data to Firebase
+    if (Firebase.RTDB.setFloat(&fbdo, "/LED/voltage", voltage)) {
+      Serial.println("Voltage sent to Firebase: " + String(voltage) + " V");
     } else {
       Serial.println("Failed to send voltage to Firebase");
       Serial.println(fbdo.errorReason());
