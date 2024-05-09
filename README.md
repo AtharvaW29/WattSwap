@@ -1,4 +1,4 @@
-## College Pred
+## WattSwap Client
 
 
 ## Description
@@ -6,6 +6,7 @@
 - This React application is built using [create-react-app](https://create-react-app.dev/).
 - It uses [Tailwind CSS](https://tailwindcss.com/)
 - The application is generated in JavaScript.
+- This is the frontend app, you need to clone the backend, hardware codes, and contracts from the maiin branch
 
 ## Pre-requisites
 
