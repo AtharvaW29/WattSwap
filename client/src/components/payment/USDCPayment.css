@@ -1,0 +1,340 @@
+/**
+ * USDCPayment.css
+ * Styling for USDC payment component
+ */
+
+.usdc-payment-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.usdc-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.usdc-header h2 {
+  font-size: 28px;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+}
+
+.usdc-header p {
+  font-size: 14px;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.error-banner {
+  background-color: rgba(255, 59, 48, 0.2);
+  border: 1px solid #ff3b30;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.usdc-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.balance-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.balance-section h3 {
+  font-size: 14px;
+  opacity: 0.8;
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.balance-display {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.balance-amount {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.balance-currency {
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+.refresh-btn,
+.network-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+
+.refresh-btn:hover:not(:disabled),
+.network-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.refresh-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.network-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 15px;
+  margin-bottom: 15px;
+}
+
+.network-section h4,
+.address-section h4 {
+  font-size: 12px;
+  opacity: 0.7;
+  margin: 0 0 5px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.network-section p,
+.address-section p {
+  font-size: 14px;
+  margin: 0;
+}
+
+.address-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 15px;
+}
+
+.address-text {
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.payment-form {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.payment-form h3 {
+  margin-top: 0;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 12px;
+  opacity: 0.8;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  color: white;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.max-amount {
+  display: block;
+  font-size: 11px;
+  opacity: 0.7;
+  margin-top: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.max-amount:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-approve {
+  background: rgba(76, 175, 80, 0.7);
+  color: white;
+}
+
+.btn-approve:hover:not(:disabled) {
+  background: rgba(76, 175, 80, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+}
+
+.btn-transfer {
+  background: rgba(33, 150, 243, 0.7);
+  color: white;
+}
+
+.btn-transfer:hover:not(:disabled) {
+  background: rgba(33, 150, 243, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.success-message {
+  background: rgba(76, 175, 80, 0.2);
+  border: 1px solid #4caf50;
+  padding: 12px;
+  border-radius: 6px;
+  margin-top: 15px;
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tx-link {
+  color: #4caf50;
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.tx-link:hover {
+  opacity: 0.8;
+}
+
+.error-message {
+  background: rgba(255, 59, 48, 0.2);
+  border: 1px solid #ff3b30;
+  padding: 12px;
+  border-radius: 6px;
+  margin-top: 15px;
+  font-size: 13px;
+}
+
+.info-section {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+.info-section h4 {
+  font-size: 13px;
+  opacity: 0.9;
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-section li {
+  font-size: 13px;
+  opacity: 0.8;
+  padding: 4px 0;
+  padding-left: 20px;
+  position: relative;
+}
+
+.info-section li:before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #4caf50;
+}
+
+@media (max-width: 500px) {
+  .usdc-payment-container {
+    padding: 15px;
+  }
+
+  .usdc-header h2 {
+    font-size: 22px;
+  }
+
+  .balance-amount {
+    font-size: 28px;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+}

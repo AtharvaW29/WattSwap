@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const appRoutes = require("./routes/approutes");
+const blockchainRoutes = require("./routes/blockchainRoutes");
 const bodyParser = require("body-parser");
 const  dotenv = require('dotenv');
 const path = require("path");
@@ -31,6 +32,9 @@ app.post('/login', loginUser)
 
 //app routes
 app.use('/app', appRoutes)
+
+// Blockchain integration routes
+app.use('/api', blockchainRoutes)
 
 app.listen(4000, () => {
     console.log("server is running on 4000!")

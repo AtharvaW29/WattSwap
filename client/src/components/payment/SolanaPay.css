@@ -1,0 +1,369 @@
+/**
+ * SolanaPay.css
+ * Styling for Solana Pay component
+ */
+
+.solana-pay-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #14f195 0%, #00d4ff 100%);
+  border-radius: 12px;
+  color: #1a1a2e;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.solana-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.solana-header h2 {
+  font-size: 28px;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.solana-header p {
+  font-size: 14px;
+  opacity: 0.8;
+  margin: 0;
+  color: #333;
+}
+
+.solana-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(20, 241, 149, 0.2);
+}
+
+.connect-card {
+  text-align: center;
+}
+
+.connect-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  color: #1a1a2e;
+}
+
+.connect-card p {
+  color: #666;
+  margin: 0 0 20px 0;
+  font-size: 14px;
+}
+
+.balance-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.balance-item {
+  background: linear-gradient(135deg, #14f195 0%, #00d4ff 100%);
+  padding: 15px;
+  border-radius: 8px;
+  color: white;
+}
+
+.balance-item h4 {
+  font-size: 12px;
+  opacity: 0.8;
+  margin: 0 0 5px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.balance-value {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.loading {
+  font-size: 13px;
+  opacity: 0.7;
+  margin: 0;
+}
+
+.wallet-section {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 15px;
+}
+
+.wallet-section h4 {
+  font-size: 12px;
+  opacity: 0.7;
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #666;
+}
+
+.wallet-address {
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 13px;
+  margin: 0;
+  word-break: break-all;
+  color: #333;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.payment-form {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.payment-form h3 {
+  margin-top: 0;
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #1a1a2e;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 12px;
+  opacity: 0.8;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #333;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #14f195;
+  background: white;
+  border-radius: 6px;
+  color: #1a1a2e;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #00d4ff;
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.3);
+}
+
+.form-input::placeholder {
+  color: rgba(26, 26, 46, 0.4);
+}
+
+.payment-info {
+  font-size: 13px;
+  color: #666;
+  background: rgba(20, 241, 149, 0.1);
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  border-left: 3px solid #14f195;
+}
+
+.qr-card {
+  text-align: center;
+}
+
+.qr-card h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #1a1a2e;
+}
+
+.amount-display {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.amount {
+  font-size: 24px;
+  font-weight: 700;
+  color: #14f195;
+}
+
+.qr-container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-bottom: 20px;
+  border: 2px dashed #14f195;
+}
+
+.qr-container canvas {
+  display: block;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.btn {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary {
+  flex: 1;
+  background: linear-gradient(135deg, #14f195 0%, #00d4ff 100%);
+  color: #1a1a2e;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(20, 241, 149, 0.4);
+}
+
+.btn-generate {
+  width: 100%;
+  background: linear-gradient(135deg, #14f195 0%, #00d4ff 100%);
+  color: #1a1a2e;
+  padding: 14px;
+  font-size: 15px;
+}
+
+.btn-generate:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(20, 241, 149, 0.4);
+}
+
+.btn-download,
+.btn-copy {
+  flex: 1;
+  background: linear-gradient(135deg, #14f195 0%, #00d4ff 100%);
+  color: #1a1a2e;
+}
+
+.btn-download:hover,
+.btn-copy:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(20, 241, 149, 0.3);
+}
+
+.btn-back {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  color: #1a1a2e;
+  margin-top: 15px;
+}
+
+.btn-back:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.qr-info {
+  background: rgba(20, 241, 149, 0.1);
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  border-left: 3px solid #14f195;
+}
+
+.qr-info p {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+}
+
+.info-section {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+.info-section h4 {
+  font-size: 13px;
+  opacity: 0.9;
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #1a1a2e;
+}
+
+.info-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-section li {
+  font-size: 13px;
+  color: #666;
+  padding: 4px 0;
+  padding-left: 20px;
+  position: relative;
+}
+
+.info-section li:before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #14f195;
+  font-weight: 700;
+}
+
+.error-banner {
+  background-color: rgba(255, 59, 48, 0.2);
+  border: 1px solid #ff3b30;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #d32f2f;
+}
+
+@media (max-width: 500px) {
+  .solana-pay-container {
+    padding: 15px;
+  }
+
+  .solana-header h2 {
+    font-size: 22px;
+  }
+
+  .balance-section {
+    grid-template-columns: 1fr;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .amount-display {
+    font-size: 14px;
+  }
+
+  .amount {
+    font-size: 20px;
+  }
+}
