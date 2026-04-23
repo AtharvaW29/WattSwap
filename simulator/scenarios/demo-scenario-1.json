@@ -1,0 +1,43 @@
+{
+  "scenario": "successful-energy-delivery",
+  "description": "Buyer purchases 1 kWh energy, relay activates, battery discharges smoothly, transaction completes",
+  "duration_seconds": 3600,
+  "devices": [
+    {
+      "id": "seller_device_001",
+      "initial_soc": 85,
+      "capacity_wh": 5000,
+      "nominal_voltage": 48
+    }
+  ],
+  "transactions": [
+    {
+      "order_id": "demo_order_001",
+      "device_id": "seller_device_001",
+      "buyer_address": "0x742d35Cc6634C0532925a3b844Bc9e7595f42466",
+      "energy_kwh": 1.0,
+      "start_delay_seconds": 2,
+      "duration_seconds": 3600,
+      "expected_completion_seconds": 3600
+    }
+  ],
+  "assertions": [
+    {
+      "at_second": 5,
+      "device": "seller_device_001",
+      "checks": {
+        "relay_is_on": true,
+        "battery_soc_less_than": 85
+      }
+    },
+    {
+      "at_second": 3600,
+      "device": "seller_device_001",
+      "checks": {
+        "relay_is_on": false,
+        "transaction_status": "completed",
+        "energy_delivered_kwh_approx": 1.0
+      }
+    }
+  ]
+}

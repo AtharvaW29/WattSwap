@@ -1,0 +1,134 @@
+.event-feed {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e0e6f2;
+  margin-bottom: 24px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-feed-title {
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.event-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-right: 8px;
+}
+
+.event-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.event-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.event-list::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 3px;
+}
+
+.event-list::-webkit-scrollbar-thumb:hover {
+  background: #bbb;
+}
+
+.event-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  border-left: 3px solid;
+  transition: all 0.2s ease;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.event-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.event-item.info {
+  background: #e8f4f8;
+  border-left-color: #0288d1;
+}
+
+.event-item.success {
+  background: #e8f5e9;
+  border-left-color: #43a047;
+}
+
+.event-item.warning {
+  background: #fff3e0;
+  border-left-color: #fb8c00;
+}
+
+.event-item.error {
+  background: #ffebee;
+  border-left-color: #e53935;
+}
+
+.event-icon {
+  font-size: 16px;
+  min-width: 20px;
+  text-align: center;
+  margin-top: 1px;
+}
+
+.event-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.event-message {
+  color: #333;
+  word-break: break-word;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.event-time {
+  color: #999;
+  font-size: 10px;
+}
+
+.event-source {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: #888;
+  min-width: 50px;
+  text-align: right;
+}
+
+.event-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #999;
+  font-size: 13px;
+}

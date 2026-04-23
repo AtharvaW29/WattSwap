@@ -1,0 +1,124 @@
+.relay-indicator {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 12px;
+  padding: 20px;
+  border: 2px solid #e0e6f2;
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
+}
+
+.relay-indicator.relay-on {
+  border-color: #48dbfb;
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  box-shadow: 0 0 20px rgba(72, 219, 251, 0.2);
+}
+
+.relay-indicator.relay-off {
+  opacity: 0.8;
+}
+
+.relay-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.relay-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.relay-badge {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.relay-badge.on {
+  background: #d4edda;
+  color: #155724;
+}
+
+.relay-badge.off {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.relay-active {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.relay-pulse {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #48dbfb;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(72, 219, 251, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(72, 219, 251, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(72, 219, 251, 0);
+  }
+}
+
+.relay-timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.relay-time {
+  font-size: 18px;
+  font-weight: 700;
+  color: #48dbfb;
+}
+
+.relay-label {
+  font-size: 11px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.relay-remaining {
+  font-size: 12px;
+  color: #666;
+  margin-left: auto;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 6px;
+}
+
+.relay-info {
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.relay-state-text {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.relay-power {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ff6348;
+}

@@ -1,0 +1,91 @@
+.system-status {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e0e6f2;
+  margin-bottom: 24px;
+}
+
+.status-title {
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.status-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #e0e6f2;
+  transition: all 0.3s ease;
+}
+
+.status-card.connected {
+  background: #e8f5e9;
+  border-color: #81c784;
+}
+
+.status-card.disconnected {
+  background: #ffebee;
+  border-color: #ef5350;
+  opacity: 0.7;
+}
+
+.status-icon {
+  font-size: 18px;
+  animation: float 2s ease-in-out infinite;
+}
+
+.status-card.disconnected .status-icon {
+  animation: none;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.status-info {
+  flex: 1;
+}
+
+.status-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: #888;
+  margin-bottom: 2px;
+}
+
+.status-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+}
+
+.status-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.last-update {
+  font-size: 11px;
+  color: #888;
+}

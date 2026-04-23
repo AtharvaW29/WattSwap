@@ -1,0 +1,28 @@
+{
+  "name": "wattswap-simulator",
+  "version": "1.0.0",
+  "description": "Virtual ESP32 simulator for WattSwap hardware-less demo",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "node test.js",
+    "demo": "DEVICE_IDS=seller_device_001,seller_device_002 node index.js"
+  },
+  "keywords": [
+    "wattswap",
+    "esp32",
+    "simulator",
+    "firebase",
+    "iot"
+  ],
+  "author": "WattSwap Team",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.3.2",
+    "firebase-admin": "^12.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

@@ -4,8 +4,10 @@ const cors = require("cors");
 const appRoutes = require("./routes/approutes");
 const blockchainRoutes = require("./routes/blockchainRoutes");
 const bodyParser = require("body-parser");
-const  dotenv = require('dotenv');
+const dotenv = require('dotenv');
 const path = require("path");
+const { initializeFirebase } = require('./firebaseInit');
+
 dotenv.config();
 
 
@@ -18,6 +20,12 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 mongoose.connect("mongodb://127.0.0.1:27017/wattswap", {  useNewUrlParser: true,
 useUnifiedTopology: true,})
+
+// Initialize Firebase for simulator/hardware integration
+initializeFirebase().catch(err => {
+  console.warn('⚠️  Firebase initialization failed - simulator will not work:', err.message);
+  console.warn('   To use simulator, configure FIREBASE_DATABASE_URL and FIREBASE_SERVICE_ACCOUNT_KEY_PATH');
+});
 
 //controller functions
 const { signupUser, loginUser } = require('./controllers/userController')

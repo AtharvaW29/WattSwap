@@ -4,7 +4,7 @@ const WTSWPToken = artifacts.require("WTSWPToken");
 
 module.exports = function (deployer) {
   // Use deployer.deployedAddresses to access deployed contract addresses
-  const WTSWPTokenAddress = "0x10d2FF6a2cDd158EA21195c93061d32301093aC9";
+  const WTSWPTokenAddress = "0x9194055AD6a3caD31EE938DEcb85852A81bE092f";
 
 
   // Only deploy WTSWPToken if it hasn't been deployed yet

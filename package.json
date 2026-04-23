@@ -15,7 +15,12 @@
     "listen:events": "node scripts/event-listener.js",
     "server": "node server/index.js",
     "client": "cd client && npm start",
-    "client:build": "cd client && npm run build"
+
+    "client:build": "cd client && npm run build",
+    "simulator": "node simulator/index.js",
+    "simulator:demo": "DEVICE_IDS=seller_device_001,seller_device_002 SIMULATION_SPEED=2.0 node simulator/index.js",
+    "simulator:debug": "VERBOSE=true node simulator/index.js",
+    "test:simulator": "node test-integration.js"
   },
   "dependencies": {
     "@mui/styles": "^5.14.18",

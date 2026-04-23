@@ -23,7 +23,8 @@
         }
       ],
       "stateMutability": "pure",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"availablePower\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"isEnergyAvailable\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/energyAvailability.sol\":\"energyAvailability\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/energyAvailability.sol\":{\"keccak256\":\"0x861f419f31809253cb9e562a9e350f01be9101ae23daa7a77992735126f762dd\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d1703497e7804cc31633cacf28bdaf79bd02d2ca8cdc07bbab169b71fc31625f\",\"dweb:/ipfs/QmPSZWpqiEHR8m3KWQJN29zPgn2GufwRg8E1xazA9pNRbt\"]}},\"version\":1}",
@@ -889,15 +890,15 @@
     "absolutePath": "project:/contracts/energyAvailability.sol",
     "exportedSymbols": {
       "energyAvailability": [
-        2426
+        2427
       ]
     },
-    "id": 2427,
+    "id": 2428,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2411,
+        "id": 2412,
         "literals": [
           "solidity",
           "^",
@@ -914,9 +915,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 2426,
+        "id": 2427,
         "linearizedBaseContracts": [
-          2426
+          2427
         ],
         "name": "energyAvailability",
         "nameLocation": "66:18:11",
@@ -924,7 +925,7 @@
         "nodes": [
           {
             "body": {
-              "id": 2424,
+              "id": 2425,
               "nodeType": "Block",
               "src": "184:89:11",
               "statements": [
@@ -934,17 +935,17 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 2422,
+                    "id": 2423,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
-                      "id": 2420,
+                      "id": 2421,
                       "name": "availablePower",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2413,
+                      "referencedDeclaration": 2414,
                       "src": "201:14:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -954,11 +955,11 @@
                     "nodeType": "BinaryOperation",
                     "operator": ">=",
                     "rightExpression": {
-                      "id": 2421,
+                      "id": 2422,
                       "name": "amount",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2415,
+                      "referencedDeclaration": 2416,
                       "src": "219:6:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -971,15 +972,15 @@
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 2419,
-                  "id": 2423,
+                  "functionReturnParameters": 2420,
+                  "id": 2424,
                   "nodeType": "Return",
                   "src": "194:31:11"
                 }
               ]
             },
             "functionSelector": "abe7fa1c",
-            "id": 2425,
+            "id": 2426,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -987,17 +988,17 @@
             "nameLocation": "99:17:11",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2416,
+              "id": 2417,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2413,
+                  "id": 2414,
                   "mutability": "mutable",
                   "name": "availablePower",
                   "nameLocation": "125:14:11",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2425,
+                  "scope": 2426,
                   "src": "117:22:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1006,7 +1007,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2412,
+                    "id": 2413,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "117:7:11",
@@ -1019,12 +1020,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2415,
+                  "id": 2416,
                   "mutability": "mutable",
                   "name": "amount",
                   "nameLocation": "149:6:11",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2425,
+                  "scope": 2426,
                   "src": "141:14:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1033,7 +1034,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2414,
+                    "id": 2415,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "141:7:11",
@@ -1048,17 +1049,17 @@
               "src": "116:40:11"
             },
             "returnParameters": {
-              "id": 2419,
+              "id": 2420,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2418,
+                  "id": 2419,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2425,
+                  "scope": 2426,
                   "src": "178:4:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1067,7 +1068,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2417,
+                    "id": 2418,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "178:4:11",
@@ -1081,14 +1082,14 @@
               ],
               "src": "177:6:11"
             },
-            "scope": 2426,
+            "scope": 2427,
             "src": "90:183:11",
             "stateMutability": "pure",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 2427,
+        "scope": 2428,
         "src": "57:218:11",
         "usedErrors": []
       }
@@ -1111,10 +1112,17 @@
       "links": {},
       "address": "0x6eD79Aa1c71FD7BdBC515EfdA3Bd4e26394435cC",
       "transactionHash": "0x2028b028f9186773bd7f4e92e798894404a4834eb0a1cbc2a7de57da95486815"
+    },
+    "1776915103390": {
+      "events": {},
+      "links": {},
+      "address": "0x9561C133DD8580860B6b7E504bC5Aa500f0f06a7",
+      "transactionHash": "0x686f99625ed0bbbb2807eb239fab01b6a97f2e3f291ec457a9a8b680d59682ca"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2026-04-23T01:45:57.997Z",
+  "updatedAt": "2026-04-23T03:46:00.109Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {},

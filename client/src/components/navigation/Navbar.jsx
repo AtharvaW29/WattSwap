@@ -48,6 +48,9 @@ function Navbar() {
                     <Link to={'/home'}>
                         <li className='cursor-pointer font-medium'>Home</li>
                     </Link>
+                    <Link to={'/dashboard'}>
+                        <li className='cursor-pointer font-medium'>Dashboard</li>
+                    </Link>
                     <Link to={'/marketplace'}>
                         <li className='cursor-pointer font-medium'>MarketPlace</li>
                     </Link>

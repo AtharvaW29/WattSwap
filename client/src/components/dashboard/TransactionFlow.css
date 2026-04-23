@@ -1,0 +1,185 @@
+.transaction-flow {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e0e6f2;
+  margin-bottom: 24px;
+}
+
+.transaction-title {
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.transaction-order-id {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 16px;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+  font-family: monospace;
+}
+
+.transaction-stages {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 4px;
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  text-align: center;
+}
+
+.stage-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+
+.stage.pending .stage-number {
+  background: #e0e6f2;
+  color: #888;
+  border: 2px solid #ddd;
+}
+
+.stage.active .stage-number {
+  background: #feca57;
+  color: #333;
+  border: 2px solid #feca57;
+  animation: pulse-stage 1s infinite;
+}
+
+.stage.completed .stage-number {
+  background: #1dd1a1;
+  color: white;
+  border: 2px solid #1dd1a1;
+}
+
+@keyframes pulse-stage {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(254, 202, 87, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(254, 202, 87, 0);
+  }
+}
+
+.stage-name {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #666;
+}
+
+.stage-connector {
+  flex: 0.3;
+  height: 2px;
+  background: #ddd;
+  margin: 0 4px;
+  transition: all 0.3s ease;
+}
+
+.stage.active ~ .stage-connector {
+  background: #feca57;
+}
+
+.transaction-progress {
+  margin-bottom: 16px;
+}
+
+.progress-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.progress-bar {
+  height: 8px;
+  background: #e0e6f2;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #1dd1a1 0%, #10ac84 100%);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.progress-stats {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #666;
+}
+
+.progress-stats span:nth-child(2),
+.progress-stats span:nth-child(3) {
+  color: #999;
+}
+
+.transaction-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.status-badge {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status-badge.active {
+  background: #cce5ff;
+  color: #004085;
+}
+
+.status-badge.completed {
+  background: #d4edda;
+  color: #155724;
+}
+
+.completion-time {
+  font-size: 11px;
+  color: #888;
+  margin-left: auto;
+}
+
+.no-transaction {
+  text-align: center;
+  padding: 20px;
+  color: #999;
+  font-size: 13px;
+}

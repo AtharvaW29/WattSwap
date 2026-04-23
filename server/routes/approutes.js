@@ -21,7 +21,7 @@ const {
     getInvoices
 } = require("../controllers/transactionController")
 
-const { switchOnRelay } = require("../controllers/hardwareController")
+const { switchOnRelay, triggerRelay, getDeviceInfo } = require("../controllers/hardwareController")
 
 //using auth for the following
 // router.use(requireAuth)
@@ -69,5 +69,13 @@ router.get('/invoice/:user_id', getInvoices)
 
 //Get transfer Time
 router.get('/api/transfer-time/', switchOnRelay )
+
+// Hardware/Simulator Integration Routes
+
+// Trigger relay activation (used after payment confirmation)
+router.post('/hardware/trigger-relay', triggerRelay)
+
+// Get device status (battery, relay, sensors)
+router.get('/hardware/device/:deviceId', getDeviceInfo)
 
 module.exports = router

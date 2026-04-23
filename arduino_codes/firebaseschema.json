@@ -1,0 +1,23 @@
+{
+  "LED": {
+    "power": 0,
+    "current": 0,
+    "voltage": 0,
+    "checkout": false,
+    "checkoutPower": 0,
+    "relayState": "OFF",
+    "transferStatus": "idle",
+    "updatedAt": 0,
+    "lastEvent": "System initialized",
+    "transactionId": "",
+    "batteryLevel": 100,
+    "energyTransferred": 0
+  },
+  "Buyer": {
+    "power": 0,
+    "current": 0,
+    "voltage": 0,
+    "batteryLevel": 100,
+    "lastEvent": "System initialized"
+  }
+}

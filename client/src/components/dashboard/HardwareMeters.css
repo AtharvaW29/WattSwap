@@ -1,0 +1,72 @@
+.hardware-meters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.meter {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid #e0e6f2;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.meter:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+}
+
+.meter-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.meter-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+}
+
+.meter-bar {
+  height: 6px;
+  background: #e0e6f2;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.meter-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+.battery-fill {
+  background: linear-gradient(90deg, #ff6b6b 0%, #feca57 50%, #48dbfb 100%);
+}
+
+.power-fill {
+  background: linear-gradient(90deg, #5f27cd 0%, #ff6348 100%);
+}
+
+.voltage-fill {
+  background: linear-gradient(90deg, #00d2d3 0%, #54a0ff 100%);
+}
+
+.current-fill {
+  background: linear-gradient(90deg, #1dd1a1 0%, #10ac84 100%);
+}
+
+.meter-detail {
+  font-size: 11px;
+  color: #888;
+  margin-top: 8px;
+}

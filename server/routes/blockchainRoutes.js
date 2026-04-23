@@ -1,15 +1,8 @@
-/**
- * Blockchain Integration Routes for WattSwap
- * Handles:
- * - Payment webhooks from blockchain listeners
- * - Energy delivery triggers
- * - Order status updates
- */
-
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 const { Web3 } = require('web3');
+const { triggerRelayViaFirebase } = require('../firebaseInit');
 
 // Initialize Web3
 const web3 = new Web3(process.env.AVAX_RPC_URL || 'https://api.avax-test.network/ext/bc/C/rpc');
@@ -217,29 +210,30 @@ router.get('/blockchain-status', async (req, res) => {
 });
 
 /**
- * Helper function to trigger IoT relay
+ * Helper function to trigger IoT relay via Firebase
+ * Works with both physical ESP32 devices and virtual simulator
  */
 async function triggerIoTRelay(deviceId, energyQuantity, duration) {
     try {
-        // This would connect to your IoT device/smart meter
-        // Example: MQTT, HTTP API, or similar
-        
         console.log(`🔌 Triggering IoT device: ${deviceId}`);
         console.log(`   Energy: ${energyQuantity} units`);
         console.log(`   Duration: ${duration} minutes`);
 
-        // Placeholder for actual IoT trigger
-        // In production, this would:
-        // 1. Send command to relay/smart meter
-        // 2. Verify delivery has started
-        // 3. Set timer for energy quantity
+        // Send command to relay/smart meter via Firebase
+        const durationHours = (duration || 60) / 60; // Convert minutes to hours
+        const result = await triggerRelayViaFirebase(
+            deviceId,
+            energyQuantity,
+            durationHours
+        );
 
-        return {
-            success: true,
-            deviceId: deviceId,
-            message: 'Device triggered'
-        };
-
+        if (result.success) {
+            console.log(`✓ Device ${deviceId} relay triggered via Firebase`);
+            return { success: true, deviceId, message: 'Device triggered' };
+        } else {
+            console.error(`✗ Failed to trigger device ${deviceId}:`, result.error);
+            return { success: false, error: result.error };
+        }
     } catch (error) {
         console.error('Error triggering IoT relay:', error);
         return { success: false, error: error.message };

@@ -10,8 +10,10 @@ import MarketPlace from './pages/marketplace/marketPlace';
 import ListingPage from './pages/listingPage/listingPage';
 import Checkout from './pages/checkout/Checkout';
 import TransferPage from './pages/transferPage/TransferPage';
+import Dashboard from './pages/dashboard/Dashboard';
 import { useAuthContext } from './hooks/useAuthContext';
 import { useMetaMaskContext } from './hooks/useMetaMaskContext';
+import { HardwareStatusProvider } from './context/HardwareStatusContext';
 
 
 function App() {
@@ -22,48 +24,55 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <Navbar/>
-      <Routes>
-          <Route 
-            path="/" 
-            element={!user ? <Login/> : <Navigate to="/home" replace/>} 
-          />
-          <Route
-            path="/home"
-            element={user ? <LandingPage /> : <Navigate to="/" replace/>}
-          />
-          <Route
-            path="/profile"
-            element={user ? <Profile /> : <Navigate to="/" replace/>}
-          />
-          <Route
-            path="/profile/edit"
-            element={user ? <EditProfile/> : <Navigate to="/" replace/>}
-          />
-          <Route
-            path="/settings"
-            element={user ? <AppSettings/> : <Navigate to="/" replace/>}
-          />
-          <Route
-            path="/marketplace"
-            element={user && account ? <MarketPlace/> : <Navigate to="/" replace/>}
-          />
-          <Route
-            path="/listingpage"
-            element={user && account ? <ListingPage/> : <Navigate to="/" replace/>}
-          />
-          <Route
-            path="/checkout"
-            element={user && account ? <Checkout/> : <Navigate to="/" replace/>}
-          />
-          <Route
-            path="/transferpage"
-            element={user && account ? <TransferPage/> : <Navigate to="/" replace/>}
-          />
-          <Route
-            path="/signup"
-            element={!user ? <Signup/> : <Navigate to="/home" replace/>}/>
-        </Routes>
+        <HardwareStatusProvider>
+          <Navbar/>
+          <Routes>
+            <Route 
+              path="/" 
+              element={!user ? <Login/> : <Navigate to="/home" replace/>} 
+            />
+            <Route
+              path="/home"
+              element={user ? <LandingPage /> : <Navigate to="/" replace/>}
+            />
+            <Route
+              path="/dashboard"
+              element={user ? <Dashboard /> : <Navigate to="/" replace/>}
+            />
+            <Route
+              path="/profile"
+              element={user ? <Profile /> : <Navigate to="/" replace/>}
+            />
+            <Route
+              path="/profile/edit"
+              element={user ? <EditProfile/> : <Navigate to="/" replace/>}
+            />
+            <Route
+              path="/settings"
+              element={user ? <AppSettings/> : <Navigate to="/" replace/>}
+            />
+            <Route
+              path="/marketplace"
+              element={user && account ? <MarketPlace/> : <Navigate to="/" replace/>}
+            />
+            <Route
+              path="/listingpage"
+              element={user && account ? <ListingPage/> : <Navigate to="/" replace/>}
+            />
+            <Route
+              path="/checkout"
+              element={user && account ? <Checkout/> : <Navigate to="/" replace/>}
+            />
+            <Route
+              path="/transferpage"
+              element={user && account ? <TransferPage/> : <Navigate to="/" replace/>}
+            />
+            <Route
+              path="/signup"
+              element={!user ? <Signup/> : <Navigate to="/home" replace/>}
+            />
+          </Routes>
+        </HardwareStatusProvider>
       </BrowserRouter>
     </div>
   );

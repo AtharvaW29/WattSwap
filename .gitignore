@@ -7,3 +7,15 @@
 /client/.env
 /.env
 /node_modules
+/server/firebase-adminsdk.json
+
+# Firebase
+firebase-service-account.json
+/simulator/firebase-service-account.json
+/simulator/.env
+/arduino_codes/wattswap-23188-firebase-adminsdk-fbsvc-a9a91e0f7a.json
+
+# Simulator
+/simulator/node_modules
+/simulator/package-lock.json
+/simulator/firebase-adminsdk.json

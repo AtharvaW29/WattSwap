@@ -9,7 +9,7 @@ contract WTSWPToken {
     address private hardcodedRecipient = 0x495A88f75EaaaCba4AE15cA2046663CB5ee607e3;
     string public name = "WTSWP Token";
     string public symbol = "WTSWP";
-    uint256 public totalSupply;
+    uint256 public totalSupply = 15;
     uint8 public decimals = 18;
 
     mapping(address => uint256) public balanceOf;

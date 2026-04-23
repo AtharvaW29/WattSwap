@@ -12343,7 +12343,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.16",
-  "updatedAt": "2026-04-23T01:45:57.976Z",
+  "updatedAt": "2026-04-23T03:45:58.885Z",
   "devdoc": {
     "details": "Mock USDC token for testing, mimics USDC.e on Avalanche",
     "events": {
