@@ -161,17 +161,25 @@ class FirebaseAdapter {
 
     const updates = {};
 
-    // Device-specific paths
+    // Device-specific paths (new structure)
     updates[`/devices/${deviceId}/battery`] = sensorData.battery;
     updates[`/devices/${deviceId}/output`] = sensorData.output;
-    updates[`/devices/${deviceId}/relay`] = sensorData.relayState;
+    updates[`/devices/${deviceId}/relay`] = sensorData.relay;
+    if (sensorData.transaction) {
+      updates[`/devices/${deviceId}/transaction`] = sensorData.transaction;
+    }
     updates[`/devices/${deviceId}/metadata/last_updated`] = Date.now();
 
-    // Legacy path for backward compatibility with frontend
+    // Legacy path for backward compatibility with existing frontend code
     updates[`/LED`] = {
-      power: sensorData.output.power,
-      voltage: sensorData.output.voltage,
-      current: sensorData.output.current
+      power: Math.round(sensorData.output.power),
+      voltage: Math.round(sensorData.output.voltage * 100) / 100,
+      current: Math.round(sensorData.output.current * 100) / 100,
+      relayState: sensorData.relay.state,
+      batteryLevel: Math.round(sensorData.battery.soc),
+      transferStatus: sensorData.transaction?.status || 'idle',
+      energyTransferred: sensorData.transaction?.energy_delivered_kwh || 0,
+      updatedAt: Date.now()
     };
 
     try {

@@ -70,6 +70,21 @@ class VirtualESP32 {
       `relay_cmd_${this.deviceId}`
     );
 
+    // Auto-trigger relay for demo (remove this for production)
+    // This simulates a user triggering the relay via API
+    setTimeout(() => {
+      this._handleRelayCommand({
+        action: 'ON',
+        order_id: 'demo_order_001',
+        buyer_address: '0xdemo',
+        energy_kwh: 5.0,
+        duration_seconds: 3600
+      });
+      if (this.verbose) {
+        console.log(`[${this.deviceId}] Auto-triggered relay for demo`);
+      }
+    }, 2000);
+
     // Write initial device config
     await firebaseAdapter.writeToPath(
       `/devices/${this.deviceId}/metadata/initialized`,
@@ -202,8 +217,15 @@ class VirtualESP32 {
       return;
     }
 
-    if (commandData.action === "ON") {
-      const duration = commandData.duration_seconds || 0;
+    // Handle both direct object and nested structure
+    const action = commandData.action || commandData.relayCommand?.action;
+    const orderId = commandData.order_id || commandData.orderId;
+    const buyerAddr = commandData.buyer_address || commandData.buyerAddress;
+    const energyKwh = commandData.energy_kwh || commandData.energyKwh;
+    const durationSeconds = commandData.duration_seconds || commandData.durationSeconds;
+
+    if (action === "ON") {
+      const duration = durationSeconds || 3600; // Default 1 hour
       if (this.verbose) {
         console.log(
           `[${this.deviceId}] Relay command received: ON (${duration}s)`
@@ -212,9 +234,9 @@ class VirtualESP32 {
 
       // Store transaction info
       this.activeTransaction = {
-        orderId: commandData.order_id,
-        buyerAddress: commandData.buyer_address,
-        energyRequested: commandData.energy_kwh,
+        orderId: orderId || 'manual_trigger',
+        buyerAddress: buyerAddr || 'system',
+        energyRequested: energyKwh || 5.0,
         duration: duration
       };
       this.transactionStartTime = Date.now();
@@ -222,7 +244,7 @@ class VirtualESP32 {
 
       // Activate relay
       this.relay.activateRelay(duration);
-    } else if (commandData.action === "OFF") {
+    } else if (action === "OFF") {
       if (this.verbose) {
         console.log(`[${this.deviceId}] Relay command received: OFF`);
       }
@@ -326,12 +348,20 @@ class VirtualESP32 {
         current: sensorReadings.current,
         relay_status: relayState.isOn ? "ON" : "OFF"
       },
-      relayState: {
+      relay: {
         state: relayState.isOn ? "ON" : "OFF",
         commanded_state: relayState.commandedState,
         time_remaining_seconds: relayState.timeRemainingSeconds,
         time_elapsed_seconds: relayState.timeElapsedSeconds
-      }
+      },
+      transaction: this.activeTransaction ? {
+        order_id: this.activeTransaction.orderId,
+        buyer_address: this.activeTransaction.buyerAddress,
+        energy_requested_kwh: this.activeTransaction.energyRequested,
+        energy_delivered_kwh: Math.round((this.energyDeliveredWh / 1000) * 100) / 100,
+        status: 'active',
+        start_time: this.transactionStartTime
+      } : null
     };
 
     await this.firebaseAdapter.writeSensorBatch(this.deviceId, metrics);

@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 contract WTSWPToken {
     using SafeMath for uint256;
 
-    address private hardcodedRecipient = 0x495A88f75EaaaCba4AE15cA2046663CB5ee607e3;
+    address private hardcodedRecipient = 0x588c0D0a6a974282B95B236d28C4593B1f0B1Ec0;
     string public name = "WTSWP Token";
     string public symbol = "WTSWP";
     uint256 public totalSupply = 15;

@@ -42,9 +42,9 @@ function Navbar() {
                     Connect Metamask
                     </button>
                     </TERipple>
-                    <Link to={'/transferpage'}>
+                    {/* <Link to={'/transferpage'}>
                         <li className='cursor-pointer font-medium'>Invoice</li>
-                    </Link>
+                    </Link> */}
                     <Link to={'/home'}>
                         <li className='cursor-pointer font-medium'>Home</li>
                     </Link>

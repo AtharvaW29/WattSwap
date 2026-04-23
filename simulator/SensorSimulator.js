@@ -77,7 +77,7 @@ class SensorSimulator {
   _calculateLoadCurrent(timeSeconds) {
     switch (this.loadProfile) {
       case "constant":
-        // Constant load: 30A
+        // Constant load: 30A (typical for household battery output)
         return 30;
 
       case "pulsed":

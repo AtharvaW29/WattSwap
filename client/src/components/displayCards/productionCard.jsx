@@ -97,7 +97,7 @@ export default function GlassCard() {
           {user.name}
         </Typography>
         <Typography variant='h6' fontWeight={600} color={'#e5e5e5'}>
-              Electricity Produced: {power} mAH
+              Electricity Produced: {power} KwH
               </Typography>
       </CardContent>
     </Card>

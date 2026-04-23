@@ -36380,7 +36380,7 @@
     "version": "0.8.19+commit.7dd6d404.Emscripten.clang"
   },
   "networks": {
-    "1776907039528": {
+    "1337": {
       "events": {
         "0x85e097789c3ac56c0d1376d977138b099d5ccbdf055680a82bb03e6fb52bcbe8": {
           "anonymous": false,
@@ -36553,188 +36553,18 @@
         }
       },
       "links": {},
-      "address": "0x5f8e26fAcC23FA4cbd87b8d9Dbbd33D5047abDE1",
-      "transactionHash": "0x481ea9cee1f801153f3932fc676cb328045e294181bb85386d96a6841ec89b78"
+      "address": "0x6444118c271e1dA74D808418F78665A79c4AAC2B",
+      "transactionHash": "0x86453130c4d739db0c3904684afce2382c20aa5a6278970ba9180036eaa3b0fc"
     },
-    "1776915103390": {
-      "events": {
-        "0x85e097789c3ac56c0d1376d977138b099d5ccbdf055680a82bb03e6fb52bcbe8": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "user",
-              "type": "address"
-            },
-            {
-              "indexed": false,
-              "internalType": "uint256",
-              "name": "amount",
-              "type": "uint256"
-            }
-          ],
-          "name": "EscrowDeposited",
-          "type": "event"
-        },
-        "0x67ba03b899c1b0009c08c2717653a5a03a8730cc17a1a8c0c57b4728991672f3": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "user",
-              "type": "address"
-            },
-            {
-              "indexed": false,
-              "internalType": "uint256",
-              "name": "amount",
-              "type": "uint256"
-            }
-          ],
-          "name": "EscrowWithdrawn",
-          "type": "event"
-        },
-        "0x12dc294b81a709d694b1337a350a12a00076c19a77a25aab67a5f0c07e0f164d": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "internalType": "uint256",
-              "name": "listingId",
-              "type": "uint256"
-            },
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "seller",
-              "type": "address"
-            },
-            {
-              "indexed": false,
-              "internalType": "uint256",
-              "name": "quantity",
-              "type": "uint256"
-            },
-            {
-              "indexed": false,
-              "internalType": "uint256",
-              "name": "pricePerUnit",
-              "type": "uint256"
-            }
-          ],
-          "name": "ListingCreated",
-          "type": "event"
-        },
-        "0x61b9399f2f0f32ca39ce8d7be32caed5ec22fe07a6daba3a467ed479ec606582": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "internalType": "uint256",
-              "name": "orderId",
-              "type": "uint256"
-            }
-          ],
-          "name": "OrderCancelled",
-          "type": "event"
-        },
-        "0xd51de68905299e6d46c744b49ae0096f710dc1395d60071f337b0170ae962d05": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "internalType": "uint256",
-              "name": "orderId",
-              "type": "uint256"
-            },
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "buyer",
-              "type": "address"
-            },
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "seller",
-              "type": "address"
-            }
-          ],
-          "name": "OrderCompleted",
-          "type": "event"
-        },
-        "0x0304ee351529c3b3e37ed0d21ac12d1e8b5fbb40280fec8bb8850cf92d14e482": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "internalType": "uint256",
-              "name": "orderId",
-              "type": "uint256"
-            },
-            {
-              "indexed": true,
-              "internalType": "uint256",
-              "name": "listingId",
-              "type": "uint256"
-            },
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "buyer",
-              "type": "address"
-            },
-            {
-              "indexed": false,
-              "internalType": "address",
-              "name": "seller",
-              "type": "address"
-            },
-            {
-              "indexed": false,
-              "internalType": "uint256",
-              "name": "quantity",
-              "type": "uint256"
-            },
-            {
-              "indexed": false,
-              "internalType": "uint256",
-              "name": "totalPrice",
-              "type": "uint256"
-            }
-          ],
-          "name": "OrderPlaced",
-          "type": "event"
-        },
-        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "previousOwner",
-              "type": "address"
-            },
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "newOwner",
-              "type": "address"
-            }
-          ],
-          "name": "OwnershipTransferred",
-          "type": "event"
-        }
-      },
+    "1776940563905": {
+      "events": {},
       "links": {},
-      "address": "0x0290FB167208Af455bB137780163b7B7a9a10C16",
-      "transactionHash": "0xf122be88a3b282741f840c205c05752388d5580dd73493af134b85afa0348168"
+      "address": "0xC89Ce4735882C9F0f0FE26686c53074E09B0D550",
+      "transactionHash": "0x9f2d16ddb6b6aa6e19d472721621b472625302e71ba64d9a94d4d43e27ff2b63"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2026-04-23T03:46:00.393Z",
+  "updatedAt": "2026-04-23T11:12:16.239Z",
   "networkType": "ethereum",
   "devdoc": {
     "details": "Smart contract for energy trading with USDC payments on Avalanche Supports cross-chain payments via Circle CCTP and Circle Gateway",

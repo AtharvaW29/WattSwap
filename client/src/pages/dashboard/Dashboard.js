@@ -6,11 +6,14 @@ import TransactionFlow from '../../components/dashboard/TransactionFlow';
 import EventFeed from '../../components/dashboard/EventFeed';
 import SystemStatus from '../../components/dashboard/SystemStatus';
 import './Dashboard.css';
+import primarybg from '../../assets/images/primarybg.png'
 
 const Dashboard = () => {
   const { state } = useHardwareStatus();
 
   return (
+    <div className="bg-[#090016] bg-cover bg-center"
+           style={{ backgroundImage: `url(${primarybg})`}}>
     <div className="dashboard-container">
       <div className="dashboard-header">
         <h1>Hardware Status Dashboard</h1>
@@ -58,6 +61,7 @@ const Dashboard = () => {
           lastUpdated={state.lastUpdated}
         />
       </div>
+    </div>
     </div>
   );
 };

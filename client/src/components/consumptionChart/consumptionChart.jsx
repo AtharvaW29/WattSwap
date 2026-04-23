@@ -66,7 +66,7 @@ export default function ConsumptionChart() {
       const databaseRef = ref(database);
       get(databaseRef)
         .then((snapshot) => {
-          if (snapshot.exists() && user.name === 'Jimit') {
+          if (snapshot.exists() && user.name !== 'Atharva') {
             const buyerData = snapshot.val().Buyer;
             let powerData = buyerData && buyerData.power;
             // const voltageData = powerData && powerData.voltage;
