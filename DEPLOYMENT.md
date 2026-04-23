@@ -103,7 +103,7 @@ truffle migrate --network development
 # ==========
 # > Network name: 'development'
 # > 
-# WattSwapV2 deployed at: 0x...
+# WattSwap deployed at: 0x...
 ```
 
 ### 2.3 Run Smart Contract Tests
@@ -112,7 +112,7 @@ truffle migrate --network development
 truffle test
 
 # Expected output:
-# WattSwapV2
+# WattSwap
 #   Listing Creation
 #     ✓ should create an energy listing
 #     ✓ should fail to create listing with zero quantity
@@ -145,12 +145,12 @@ npm run client
 2. Enter your wallet address
 3. Receive 2 AVAX on Fuji testnet
 
-### 3.2 Deploy WattSwapV2 to Fuji
+### 3.2 Deploy WattSwap to Fuji
 ```bash
 truffle migrate --network fuji
 
 # Verify deployment
-truffle run verify WattSwapV2 --network fuji \
+truffle run verify WattSwap --network fuji \
   --address 0x[CONTRACT_ADDRESS]
 ```
 
@@ -189,7 +189,7 @@ truffle compile
 truffle migrate --network avalanche
 
 # Record contract address and verify
-truffle run verify WattSwapV2 --network avalanche
+truffle run verify WattSwap --network avalanche
 ```
 
 ### 4.3 Configure Mainnet Environment
@@ -231,7 +231,7 @@ curl http://localhost:5000/api/escrow-balance/0x[USER_ADDRESS]
 ```bash
 # Update platform fee
 truffle console --network avalanche
-# > const ws = await WattSwapV2.deployed()
+# > const ws = await WattSwap.deployed()
 # > await ws.setPlatformFeePercentage(5)
 
 # Pause listings (emergency)
@@ -246,7 +246,7 @@ truffle console --network avalanche
 ### Smart Contracts
 ```
 contracts/
-├── WattSwapV2.sol          (Main trading contract)
+├── WattSwap.sol          (Main trading contract)
 ├── MockUSDC.sol            (For testing)
 └── Interfaces/
     └── IERC20.sol          (USDC interface)
@@ -393,7 +393,7 @@ truffle networks
 
 # Test contract interaction
 truffle console --network fuji
-> const w = await WattSwapV2.deployed()
+> const w = await WattSwap.deployed()
 > const bal = await w.getEscrowBalance('0x...')
 ```
 

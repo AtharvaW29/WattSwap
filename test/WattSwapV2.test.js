@@ -1,10 +1,10 @@
-// test/WattSwapV2.test.js
+// test/WattSwap.test.js
 // Unit tests for WattSwap V2 smart contract
 
-const WattSwapV2 = artifacts.require("WattSwapV2");
+const WattSwap = artifacts.require("WattSwap");
 const MockUSDC = artifacts.require("MockUSDC"); // Mock USDC for testing
 
-contract("WattSwapV2", accounts => {
+contract("WattSwap", accounts => {
   let wattswap;
   let usdc;
   const seller = accounts[1];
@@ -17,7 +17,7 @@ contract("WattSwapV2", accounts => {
     usdc = await MockUSDC.new();
     
     // Deploy WattSwap with mock USDC address
-    wattswap = await WattSwapV2.new(usdc.address);
+    wattswap = await WattSwap.new(usdc.address);
 
     // Mint USDC to test accounts
     await usdc.mint(seller, web3.utils.toWei('1000', 'mwei'));

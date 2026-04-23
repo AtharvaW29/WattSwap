@@ -18,7 +18,7 @@ All 5 development sprints have been successfully completed. WattSwap V2 is a ful
 ### Core Components:
 
 #### 🔗 Smart Contracts (Avalanche C-Chain)
-- `WattSwapV2.sol` (~400 LOC) - Main trading contract
+- `WattSwap.sol` (~400 LOC) - Main trading contract
   - Energy listing system
   - USDC escrow management
   - Order placement & approval
@@ -178,7 +178,7 @@ See `DEPLOYMENT.md` for complete instructions.
 
 ### Unit Tests (Smart Contracts)
 ```
-WattSwapV2
+WattSwap
   ✓ Listing Creation (3 tests)
   ✓ USDC Deposit to Escrow (3 tests)
   ✓ Order Placement (4 tests)
@@ -231,7 +231,7 @@ WattSwap_Primary/
 ├── 📄 IMPLEMENTATION_SUMMARY.md (Detailed summary)
 │
 ├── 🔧 contracts/
-│   ├── WattSwapV2.sol           (Main contract)
+│   ├── WattSwap.sol           (Main contract)
 │   └── MockUSDC.sol             (Test token)
 │
 ├── 🚀 migrations/
@@ -242,7 +242,7 @@ WattSwap_Primary/
 │   └── event-listener.js        (Blockchain listener)
 │
 ├── 🧪 test/
-│   ├── WattSwapV2.test.js       (31 unit tests)
+│   ├── WattSwap.test.js       (31 unit tests)
 │   ├── CircleBridge.integration.test.js (10 integration tests)
 │   └── README.md                (Testing guide)
 │

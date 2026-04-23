@@ -23,8 +23,7 @@
         }
       ],
       "stateMutability": "pure",
-      "type": "function",
-      "constant": true
+      "type": "function"
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"availablePower\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"isEnergyAvailable\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/energyAvailability.sol\":\"energyAvailability\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/energyAvailability.sol\":{\"keccak256\":\"0x861f419f31809253cb9e562a9e350f01be9101ae23daa7a77992735126f762dd\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d1703497e7804cc31633cacf28bdaf79bd02d2ca8cdc07bbab169b71fc31625f\",\"dweb:/ipfs/QmPSZWpqiEHR8m3KWQJN29zPgn2GufwRg8E1xazA9pNRbt\"]}},\"version\":1}",
@@ -1110,13 +1109,12 @@
     "1776907039528": {
       "events": {},
       "links": {},
-      "address": "0x0290FB167208Af455bB137780163b7B7a9a10C16",
-      "transactionHash": "0xefebb632af4aa6a555c714c2582ebcc399390826b6f69cd1a36b2f1eb38e8df7"
+      "address": "0x6eD79Aa1c71FD7BdBC515EfdA3Bd4e26394435cC",
+      "transactionHash": "0x2028b028f9186773bd7f4e92e798894404a4834eb0a1cbc2a7de57da95486815"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2026-04-23T01:29:43.715Z",
-  "networkType": "ethereum",
+  "updatedAt": "2026-04-23T01:45:57.997Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

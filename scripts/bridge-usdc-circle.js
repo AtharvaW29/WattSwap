@@ -7,7 +7,7 @@
  */
 
 require('dotenv').config();
-const Web3 = require('web3');
+const { Web3 } = require('web3');
 const { ethers } = require('ethers');
 
 // Initialize Web3 instances for different chains
@@ -103,7 +103,7 @@ async function bridgeUSDC(sourceChain, destinationChain, amount, recipientAddres
         }
         
         // Initialize provider
-        const provider = new ethers.providers.JsonRpcProvider(sourceConfig.rpc);
+        const provider = new ethers.JsonRpcProvider(sourceConfig.rpc);
         const wallet = new ethers.Wallet(process.env.AVAX_MNEMONIC, provider);
         
         // Initialize USDC contract
@@ -115,7 +115,7 @@ async function bridgeUSDC(sourceChain, destinationChain, amount, recipientAddres
         
         // Check balance
         const balance = await usdcContract.balanceOf(wallet.address);
-        console.log(`💰 Wallet USDC balance: ${ethers.utils.formatUnits(balance, 6)} USDC`);
+        console.log(`💰 Wallet USDC balance: ${ethers.formatUnits(balance, 6)} USDC`);
         
         if (balance < amount) {
             throw new Error(`Insufficient USDC balance. Have ${balance}, need ${amount}`);
@@ -138,7 +138,7 @@ async function bridgeUSDC(sourceChain, destinationChain, amount, recipientAddres
         console.log(`\n✅ Step 2: Initiating bridge via Circle Gateway...`);
         
         // Convert recipient address to bytes32 format (padding with zeros)
-        const recipient32 = ethers.utils.hexZeroPad(recipientAddress, 32);
+        const recipient32 = ethers.zeroPadValue(recipientAddress, 32);
         
         const bridgeTx = await gatewayContract.depositForBurn(
             amount,
@@ -229,7 +229,7 @@ async function runBridgeExamples() {
     console.log('='.repeat(60));
     
     // Example 1: Bridge 100 USDC from Ethereum to Avalanche
-    const amount = ethers.utils.parseUnits('100', 6); // 100 USDC
+    const amount = ethers.parseUnits('100', 6);
     const recipientAddress = process.env.WATTSWAP_CONTRACT_ADDRESS || '0x0000000000000000000000000000000000000000';
     
     console.log('\n📝 Example: Bridge 100 USDC from Ethereum to Avalanche');

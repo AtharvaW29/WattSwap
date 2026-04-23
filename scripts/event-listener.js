@@ -9,7 +9,7 @@
  */
 
 require('dotenv').config();
-const Web3 = require('web3');
+const { Web3, WebSocketProvider } = require('web3');
 const { Connection, PublicKey } = require('@solana/web3.js');
 const axios = require('axios');
 
@@ -104,40 +104,47 @@ class WattSwapEventListener {
     /**
      * Start listening to Avalanche USDC transfers
      */
-    startAvalancheListener() {
-        console.log('🔍 Starting Avalanche USDC listener...');
-        
-        const usdcContract = new web3Avalanche.eth.Contract(USDC_ABI, this.usdcAddress);
-        
-        // Listen for past events first
-        usdcContract.getPastEvents(
-            'Transfer',
-            {
-                filter: { to: this.wattswapAddress },
-                fromBlock: 'latest',
-                toBlock: 'latest'
-            }
-        ).then(events => {
-            console.log(`✓ Found ${events.length} past USDC transfer events`);
-            events.forEach(event => this.handleUSDCTransfer(event));
-        }).catch(error => {
-            console.error('Error getting past events:', error);
-        });
+startAvalancheListener() {
+    console.log('🔍 Starting Avalanche USDC listener...');
 
-        // Watch for new events
-        usdcContract.events.Transfer({
-            filter: { to: this.wattswapAddress }
-        })
-        .on('data', event => {
-            console.log('💳 New USDC Transfer Event:');
-            this.handleUSDCTransfer(event);
-        })
-        .on('error', error => {
-            console.error('Avalanche listener error:', error);
-            // Reconnect after error
-            setTimeout(() => this.startAvalancheListener(), 5000);
-        });
+    const usdcContract = new web3Avalanche.eth.Contract(USDC_ABI, this.usdcAddress);
+
+    // Historical events
+    usdcContract.getPastEvents('Transfer', {
+        filter: { to: this.wattswapAddress },
+        fromBlock: 'latest',
+        toBlock: 'latest'
+    }).then(events => {
+        console.log(`✓ Found ${events.length} past USDC transfer events`);
+        events.forEach(event => this.handleUSDCTransfer(event));
+    }).catch(error => {
+        console.error('Error getting past events:', error);
+    });
+
+    // Live subscription only if provider supports it
+    const provider = web3Avalanche.currentProvider;
+    if (!provider || typeof provider.on !== 'function') {
+        console.warn('⚠️ Current Avalanche provider does not support live subscriptions. Skipping .events.Transfer()');
+        return;
     }
+
+    const sub = usdcContract.events.Transfer({
+        filter: { to: this.wattswapAddress }
+    });
+
+    if (!sub || typeof sub.on !== 'function') {
+        console.warn('⚠️ Transfer subscription was not created. Skipping live listener.');
+        return;
+    }
+
+    sub.on('data', event => {
+        console.log('💳 New USDC Transfer Event:');
+        this.handleUSDCTransfer(event);
+    }).on('error', error => {
+        console.error('Avalanche listener error:', error);
+        setTimeout(() => this.startAvalancheListener(), 5000);
+    });
+}
 
     /**
      * Handle USDC transfer event

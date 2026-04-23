@@ -30,14 +30,21 @@ describe("Circle CCTP Bridge Integration", () => {
       assert.ok(chainConfig.solana, "Solana config should exist");
 
       // Verify required properties
-      Object.values(chainConfig).forEach(config => {
-        assert.ok(config.rpc, "RPC endpoint required");
-        assert.ok(config.chainId || config.chainId === 0, "Chain ID required");
-        assert.ok(config.circleDomain !== undefined, "Circle domain required");
-        assert.ok(config.usdc, "USDC address required");
-        assert.ok(config.gateway, "Gateway address required");
-      });
+    const evmChains = ['ethereum', 'avalanche'];
+
+    evmChains.forEach((chain) => {
+    const config = chainConfig[chain];
+    assert.ok(config.rpc, `${chain} RPC endpoint required`);
+    assert.ok(config.chainId || config.chainId === 0, `${chain} chain ID required`);
+    assert.ok(config.circleDomain !== undefined, `${chain} Circle domain required`);
+    assert.ok(config.usdcAddress, `${chain} USDC address required`);
+    assert.ok(config.gatewayAddress, `${chain} gateway address required`);
     });
+
+    assert.ok(chainConfig.solana, "Solana config should exist");
+    assert.ok(chainConfig.solana.network, "Solana network required");
+    assert.ok(chainConfig.solana.circleDomain !== undefined, "Solana Circle domain required");
+    assert.ok(chainConfig.solana.usdcMint, "Solana USDC mint required");
 
     it("should validate bridge parameters", () => {
       try {
@@ -132,7 +139,7 @@ describe("Circle CCTP Bridge Integration", () => {
     });
   });
 });
-
+})
 /**
  * Example test execution:
  * 

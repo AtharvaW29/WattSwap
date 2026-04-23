@@ -6,8 +6,8 @@ Comprehensive testing suite for WattSwap V2 smart contracts and integration feat
 
 ## Test Files
 
-### 1. WattSwapV2.test.js (Unit Tests)
-**Location**: `test/WattSwapV2.test.js`  
+### 1. WattSwap.test.js (Unit Tests)
+**Location**: `test/WattSwap.test.js`  
 **Type**: Unit tests using Truffle/Mocha  
 **Coverage**: Smart contract functionality
 
@@ -87,7 +87,7 @@ npm install
 truffle test
 
 # Run specific test file
-truffle test test/WattSwapV2.test.js
+truffle test test/WattSwap.test.js
 
 # Run with detailed output
 truffle test --verbose
@@ -160,7 +160,7 @@ SOLANA_RPC_URL=https://api.devnet.solana.com
 ## Test Results Example
 
 ```
-  WattSwapV2
+  WattSwap
     Listing Creation
       ✓ should create an energy listing
       ✓ should fail to create listing with zero quantity

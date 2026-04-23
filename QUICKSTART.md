@@ -72,7 +72,7 @@ truffle test
 ### Test Specific Features
 ```bash
 # Run only listing creation tests
-truffle test test/WattSwapV2.test.js --grep "Listing Creation"
+truffle test test/WattSwap.test.js --grep "Listing Creation"
 
 # Run integration tests
 npm run test:integration
@@ -83,7 +83,7 @@ npm run test:integration
 ## Core Components Overview
 
 ### Smart Contract
-**File**: `contracts/WattSwapV2.sol`
+**File**: `contracts/WattSwap.sol`
 
 Key functions:
 ```solidity
@@ -148,7 +148,7 @@ npm run bridge
 truffle console --network development
 
 # Check listing
-const ws = await WattSwapV2.deployed()
+const ws = await WattSwap.deployed()
 const listing = await ws.getListing(0)
 console.log(listing)
 
@@ -178,7 +178,7 @@ https://testnet.snowtrace.io/
 ```
 WattSwap_Primary/
 ├── contracts/              # Smart contracts
-│   ├── WattSwapV2.sol     # Main contract
+│   ├── WattSwap.sol     # Main contract
 │   └── MockUSDC.sol       # For testing
 ├── migrations/             # Deployment scripts
 │   └── 5_migration_wattswap_v2.js
@@ -186,7 +186,7 @@ WattSwap_Primary/
 │   ├── bridge-usdc-circle.js
 │   └── event-listener.js
 ├── test/                   # Test files
-│   ├── WattSwapV2.test.js
+│   ├── WattSwap.test.js
 │   └── CircleBridge.integration.test.js
 ├── client/                 # React frontend
 │   ├── src/components/payment/
@@ -275,7 +275,7 @@ curl http://localhost:5000/api/blockchain-status
 
 ### 1. Make Smart Contract Changes
 ```bash
-# Edit: contracts/WattSwapV2.sol
+# Edit: contracts/WattSwap.sol
 
 # Recompile and redeploy
 truffle compile
@@ -302,7 +302,7 @@ truffle test
 
 ### 4. Add New Tests
 ```bash
-# Edit: test/WattSwapV2.test.js
+# Edit: test/WattSwap.test.js
 
 # Run tests
 truffle test
@@ -362,11 +362,11 @@ truffle networks
 
 # Display contract info
 truffle console --network development
-> const ws = await WattSwapV2.deployed()
+> const ws = await WattSwap.deployed()
 > ws.address
 
 # View deployed contracts
-cat build/contracts/WattSwapV2.json | grep networks
+cat build/contracts/WattSwap.json | grep networks
 
 # Check gas prices
 curl https://api.avax-test.network/ext/bc/C/rpc \

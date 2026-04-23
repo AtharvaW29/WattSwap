@@ -1,4 +1,4 @@
-const WattSwapV2 = artifacts.require("WattSwap");
+const WattSwap = artifacts.require("WattSwap");
 
 module.exports = function(deployer, network) {
   // USDC addresses on different networks
@@ -12,5 +12,5 @@ module.exports = function(deployer, network) {
 
   console.log(`Deploying WattSwap on ${network} with USDC: ${usdcAddress}`);
   
-  deployer.deploy(WattSwapV2, usdcAddress);
+  deployer.deploy(WattSwap, usdcAddress);
 };

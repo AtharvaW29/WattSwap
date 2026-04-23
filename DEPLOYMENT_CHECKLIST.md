@@ -45,7 +45,7 @@
 - [ ] Contract compilation verified: `truffle compile`
 - [ ] Contract deployed to Fuji: `truffle migrate --network fuji`
 - [ ] Deployment transaction recorded
-- [ ] WattSwapV2 contract address noted
+- [ ] WattSwap contract address noted
 - [ ] Contract added to Snowtrace testnet explorer
 - [ ] Contract verification attempted on Snowtrace (optional)
 
@@ -113,7 +113,7 @@
 - [ ] Verify truffle network config for mainnet
 - [ ] Deploy contract: `truffle migrate --network avalanche`
 - [ ] Deployment transaction recorded and saved
-- [ ] WattSwapV2 contract address verified
+- [ ] WattSwap contract address verified
 - [ ] Contract added to [Snowtrace](https://snowtrace.io) explorer
 
 ### Post-Deployment Verification

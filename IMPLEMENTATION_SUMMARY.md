@@ -31,7 +31,7 @@ Files Created/Modified:
 **Status**: COMPLETE
 
 Components:
-- [x] WattSwapV2.sol (~400 lines) - Main energy trading contract
+- [x] WattSwap.sol (~400 lines) - Main energy trading contract
 - [x] ERC20 USDC integration with 6 decimal places
 - [x] Escrow system for buyer/seller funds
 - [x] Listing creation and management
@@ -48,7 +48,7 @@ Key Features:
 - `_completeOrder()` - USDC distribution with fee
 
 Files:
-- `contracts/WattSwapV2.sol`
+- `contracts/WattSwap.sol`
 - `contracts/MockUSDC.sol`
 - `migrations/5_migration_wattswap_v2.js`
 
@@ -118,7 +118,7 @@ Files:
 **Status**: COMPLETE
 
 Components:
-- [x] Comprehensive unit tests for WattSwapV2
+- [x] Comprehensive unit tests for WattSwap
 - [x] Integration tests for Circle CCTP bridge
 - [x] Mock USDC contract for testing
 - [x] Test runner script
@@ -135,7 +135,7 @@ Testing Coverage:
 - User query functions
 
 Test Files:
-- `test/WattSwapV2.test.js` (~400 lines, 31 test cases)
+- `test/WattSwap.test.js` (~400 lines, 31 test cases)
 - `test/CircleBridge.integration.test.js` (~200 lines, 10 test cases)
 - `test/MockUSDC.sol` - Testing token
 - `test/run-tests.sh` - Automated test runner
@@ -285,7 +285,7 @@ Documentation:
 ## Files Modified/Created
 
 ### Smart Contracts (3 files)
-- `contracts/WattSwapV2.sol` - New
+- `contracts/WattSwap.sol` - New
 - `contracts/MockUSDC.sol` - New
 - `migrations/5_migration_wattswap_v2.js` - New
 
@@ -304,7 +304,7 @@ Documentation:
 - `client/src/components/payment/SolanaPay.css` - New
 
 ### Testing (4 files)
-- `test/WattSwapV2.test.js` - New
+- `test/WattSwap.test.js` - New
 - `test/CircleBridge.integration.test.js` - New
 - `test/run-tests.sh` - New
 - `test/README.md` - New
@@ -404,7 +404,7 @@ npm run test:fuji
 
 **Status**: ✅ MVP COMPLETE - Ready for testnet deployment
 
-**Next Action**: Deploy WattSwapV2.sol to Avalanche Fuji testnet using migration script
+**Next Action**: Deploy WattSwap.sol to Avalanche Fuji testnet using migration script
 
 **Deployment Command**: `truffle migrate --network fuji`
 
